@@ -49,6 +49,7 @@
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
+        //this.load.image('coin', 'assets/coin.png');
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
 
@@ -60,8 +61,10 @@
         platforms.create(400, 568, 'ground').setScale(2).refreshBody();
 
         platforms.create(600, 400, 'ground');
-        platforms.create(50, 250, 'ground');
+        platforms.create(50, 250, 'ground').setScale(0.5).refreshBody();
         platforms.create(750, 220, 'ground');
+        platforms.create(350, 100, 'ground').setScale(0.2).refreshBody();
+        platforms.create(50, 420, 'ground');
 
         player = this.physics.add.sprite(100, 450, 'dude');
 
@@ -93,6 +96,7 @@
 
         stars = this.physics.add.group({
             key: 'star',
+            // key: 'coin',
             repeat: 11,
             setXY: { x: 12, y: 0, stepX: 70 }
         });
